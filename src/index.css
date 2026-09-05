@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    background-color: #f5f4ef;
+    color: #2b2b2b;
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #d4d2c8;
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #b4b2a8;
+  }
+}
+
+@layer components {
+  .panel {
+    @apply bg-surface border border-border rounded-xl shadow-soft;
+  }
+
+  .panel-elevated {
+    @apply bg-surface border border-border rounded-xl shadow-card;
+  }
+
+  .nav-item {
+    @apply flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-150 cursor-pointer select-none;
+  }
+
+  .nav-item:hover {
+    @apply bg-surface-hover text-text-primary;
+  }
+
+  .nav-item.active {
+    @apply bg-accent-light text-accent font-semibold;
+  }
+
+  .nav-item:not(.active) {
+    @apply text-text-secondary;
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-2xs font-semibold uppercase tracking-wider;
+  }
+
+  .input-field {
+    @apply w-full bg-surface border border-border rounded-xl px-4 py-2.5 text-sm text-text-primary placeholder:text-text-tertiary focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/30 transition-all shadow-soft;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-accent text-white font-semibold text-sm hover:bg-accent-hover transition-colors disabled:opacity-40 disabled:cursor-not-allowed shadow-soft;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 px-3 py-2 rounded-lg text-text-secondary hover:text-text-primary hover:bg-surface-hover text-sm font-medium transition-colors;
+  }
+}
